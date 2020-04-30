@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONArray jsonResponse = new JSONArray(response);
                     for (int i=0; i<jsonResponse.length(); i++) {
-                        AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
                         JSONObject food = jsonResponse.getJSONObject(i);
                         JSONObject seller = food.getJSONObject("seller");
@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
                         foodIdList.add(newFood);
 
-                        //Check if the Supplier already Exists
                         boolean tempStatus = true;
                         for(Seller sellerPtr : listSeller) {
                             if(sellerPtr.getId() == newSeller.getId()){
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     listAdapter = new MainListAdapter(MainActivity.this, listSeller, childMapping);
                     expListView.setAdapter(listAdapter);
                 }
-                catch (JSONException e) {
+                catch (JSONException x) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setMessage("Load Data Failed.").create().show();
                 }

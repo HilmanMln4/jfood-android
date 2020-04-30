@@ -18,18 +18,15 @@ import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText etName, etEmail, etPassword;
-    private Button btnRegister;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        etName  = findViewById(R.id.register_name);
-        etEmail = findViewById(R.id.register_email);
-        etPassword = findViewById(R.id.register_password);
-        btnRegister = findViewById(R.id.register_button);
+        final EditText etName = (EditText) findViewById(R.id.register_name);
+        final EditText etEmail = (EditText) findViewById(R.id.register_email);
+        final EditText etPassword = (EditText) findViewById(R.id.register_password);
+        final Button btnRegister = (Button) findViewById(R.id.register_button);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override

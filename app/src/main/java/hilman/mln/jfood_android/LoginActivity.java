@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 final String email = etEmail.getText().toString();
                 final String password = etPassword.getText().toString();
 
@@ -42,8 +42,8 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             if(jsonResponse != null){
                                 Toast.makeText(LoginActivity.this, "Login Sucessful", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
+                                Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(mainIntent);
                                 finish();
                             }
                         }
@@ -62,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
         tvRegister.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
+                Intent mainIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(mainIntent);
             }
         });
     }

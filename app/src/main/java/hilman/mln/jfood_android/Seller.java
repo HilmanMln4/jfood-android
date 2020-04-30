@@ -58,12 +58,11 @@ public class Seller {
     @Override
     public String toString()
     {
-        return "= Seller ===============================" +
-                "\nId     : " + id +
+        return "= Location ===============================" +
                 "\nName      : " + name +
-                "\nEmail          : " + email +
-                "\nPhone   : " + phoneNumber +
-                "\nLocation      : " + location +
+                "\nEmail     : " + email +
+                "\nTelephone : " + phoneNumber +
+                "\nLocation  : " + location.getCity() + ", " + location.getProvince() +
                 "\n==========================================";
     }
 }

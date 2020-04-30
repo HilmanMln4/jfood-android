@@ -59,12 +59,12 @@ public class Food {
     @Override
     public String toString()
     {
-        return "= Food ===============================" +
-                "\nId     : " + id +
-                "\nName      : " + name +
-                "\nPrice          : " + price +
-                "\nCategory   : " + category +
-                "\nSeller      : " + seller +
+        return "= Item ===================================" +
+                "\nItem ID       : " +  getId() +
+                "\nItem Name     : " + getName() +
+                "\nItem Price    : " + getPrice() +
+                "\nItem Category : " + getCategory() +
+                "\nSeller      : " + getSeller().getName() +
                 "\n==========================================";
     }
 }
