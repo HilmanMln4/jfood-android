@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONArray jsonResponse = new JSONArray(response);
                     for (int i=0; i<jsonResponse.length(); i++) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
 
                         JSONObject food = jsonResponse.getJSONObject(i);
                         JSONObject seller = food.getJSONObject("seller");
