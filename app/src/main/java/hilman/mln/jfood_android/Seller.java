@@ -1,18 +1,19 @@
 package hilman.mln.jfood_android;
 
 public class Seller {
-
     private int id;
     private String name;
     private String email;
     private String phoneNumber;
     private Location location;
 
-    public Seller(int id, String name, String email, String phoneNumber, Location location){
-        this.id = id;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.location = location;
+    public Seller(int id, String name, String email, String phoneNumber, Location location)
+    {
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.phoneNumber=phoneNumber;
+        this.location=location;
     }
 
     public int getId(){
@@ -35,27 +36,26 @@ public class Seller {
         return location;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id){
+        this.id=id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name){
+        this.name=name;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String email){
+        this.email=email;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber=phoneNumber;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLocation(Location location){
+        this.location=location;
     }
 
-    @Override
     public String toString()
     {
         return "= Location ===============================" +

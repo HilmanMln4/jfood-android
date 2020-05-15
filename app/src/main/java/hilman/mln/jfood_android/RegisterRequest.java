@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
-    private static final String URL = "http://192.168.43.236:8080/customer/register";
+    private static String URL = "http://192.168.43.236:8080/customer/register";
     private Map<String, String> params;
 
     public RegisterRequest(String name, String email, String password, Response.Listener<String> listener){
@@ -20,7 +20,7 @@ public class RegisterRequest extends StringRequest {
     }
 
     @Override
-    protected Map<String, String> getParams() throws AuthFailureError
+    public Map<String, String> getParams() throws AuthFailureError
     {
         return params;
     }

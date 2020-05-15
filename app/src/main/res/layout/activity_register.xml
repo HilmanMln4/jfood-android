@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RelativeLayout tools:context=".RegisterActivity" android:padding="25dp"
+<androidx.constraintlayout.widget.ConstraintLayout tools:context=".RegisterActivity" android:padding="40dp"
     android:background="#00F3EAEA" android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -31,4 +31,4 @@
             android:layout_marginTop="15dp"
             android:text="Register"/>
     </LinearLayout>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

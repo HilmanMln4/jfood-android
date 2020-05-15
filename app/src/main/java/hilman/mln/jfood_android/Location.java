@@ -7,9 +7,9 @@ public class Location {
     private String city;
 
     public Location(String province, String description, String city){
-        this.province = province;
-        this.city = city;
-        this.description = description;
+        this.province=province;
+        this.city=city;
+        this.description=description;
     }
 
     public String getProvince(){
@@ -25,18 +25,17 @@ public class Location {
     }
 
     public void setProvince(String province){
-        this.province = province;
+        this.province=province;
     }
 
     public void setDescription(String description){
-        this.description = description;
+        this.description=description;
     }
 
     public void setCity(String city){
-        this.city = city;
+        this.city=city;
     }
 
-    @Override
     public String toString()
     {
         return "= Location ===============================" +
@@ -45,4 +44,5 @@ public class Location {
                 "\nDescription   : " + description +
                 "\n==========================================";
     }
+
 }

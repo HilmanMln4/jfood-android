@@ -9,12 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MenuRequest extends StringRequest {
-
-    private static String URL = "http://192.168.43.61:8080/food";
+    private static final String Regis_URL = "http://192.168.43.236:8080/food";
     private Map<String, String> params;
 
     public MenuRequest(Response.Listener<String> listener) {
-        super(Method.GET, URL, listener, null);
+        super(Method.GET, Regis_URL, listener, null);
         params = new HashMap<>();
     }
 

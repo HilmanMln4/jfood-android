@@ -31,24 +31,23 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                final String email = etEmail.getText().toString();
-                final String password = etPassword.getText().toString();
+            public void onClick(View v) {
+                String email = etEmail.getText().toString();
+                String password = etPassword.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try{
-                            JSONObject jsonResponse = new JSONObject(response);
-                            if(jsonResponse != null){
+                            JSONObject jsonObject = new JSONObject(response);
+                            if(jsonObject != null){
                                 Toast.makeText(LoginActivity.this, "Login Sucessful", Toast.LENGTH_SHORT).show();
-                                Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(mainIntent);
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
                                 finish();
                             }
                         }
                         catch (JSONException e){
-                            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                             Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -62,10 +61,9 @@ public class LoginActivity extends AppCompatActivity {
         tvRegister.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(mainIntent);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }
 }
-

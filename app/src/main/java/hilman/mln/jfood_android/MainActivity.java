@@ -1,13 +1,11 @@
 package hilman.mln.jfood_android;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlertDialog;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
-import android.app.AlertDialog;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -19,8 +17,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -99,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     listAdapter = new MainListAdapter(MainActivity.this, listSeller, childMapping);
                     expListView.setAdapter(listAdapter);
                 }
-                catch (JSONException x) {
+                catch (JSONException e) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setMessage("Load Data Failed.").create().show();
                 }

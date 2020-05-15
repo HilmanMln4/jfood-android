@@ -8,63 +8,75 @@ public class Food {
     private String category;
     private Seller seller;
 
-    public Food(int id, String name, int price, String category, Seller seller){
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.category = category;
-        this.seller = seller;
+    public Food(int id, String name, int price, String category, Seller seller)
+    {
+        this.id=id;
+        this.name=name;
+        this.price=price;
+        this.category=category;
+        this.seller=seller;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public int getPrice() {
+    public int getPrice()
+    {
         return price;
     }
 
-    public String getCategory() {
+    public String getCategory()
+    {
         return category;
     }
 
-    public Seller getSeller() {
+
+    public Seller getSeller()
+    {
         return seller;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id)
+    {
+        this.id=id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name)
+    {
+        this.name=name;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPrice(int price)
+    {
+        this.price=price;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategory(String category)
+    {
+        this.category=category;
     }
 
-    public void setSeller(Seller seller) {
-        this.seller = seller;
+
+    public void setSeller(Seller seller)
+    {
+        this.seller=seller;
     }
 
-    @Override
     public String toString()
     {
-        return "= Food ===============================" +
-                "\nId     : " + id +
-                "\nName      : " + name +
-                "\nPrice          : " + price +
-                "\nCategory   : " + category +
-                "\nSeller      : " + seller +
+        return "= Item ===================================" +
+                "\nItem ID       : " +  getId() +
+                "\nItem Name     : " + getName() +
+                "\nItem Price    : " + getPrice() +
+                "\nItem Category : " + getCategory() +
+                "\nSeller      : " + getSeller().getName() +
                 "\n==========================================";
     }
 }
