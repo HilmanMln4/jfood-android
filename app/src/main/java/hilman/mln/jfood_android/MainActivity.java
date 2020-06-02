@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
                         foodIdList.add(newFood);
 
+                        //Check if the Seller already Exists
                         boolean tempStatus = true;
                         for(Seller sellerPtr : listSeller) {
                             if(sellerPtr.getId() == newSeller.getId()){

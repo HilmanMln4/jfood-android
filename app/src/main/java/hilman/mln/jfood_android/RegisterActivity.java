@@ -29,26 +29,27 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = etName.getText().toString();
-                String email = etEmail.getText().toString();
+                String email= etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {
+                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject != null) {
                                 Toast.makeText(RegisterActivity.this, "Register Sucessful", Toast.LENGTH_SHORT).show();
                             }
-                        } catch (JSONException e) {
-                            Toast.makeText(RegisterActivity.this, "Register Failed", Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                Toast.makeText(RegisterActivity.this, "Register Failed", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                };
+                    };
                 RegisterRequest registerRequest = new RegisterRequest(name, email, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
-            }
+             }
         });
     }
 }
+
