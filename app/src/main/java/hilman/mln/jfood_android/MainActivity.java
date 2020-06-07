@@ -1,7 +1,10 @@
 package hilman.mln.jfood_android;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
@@ -20,19 +23,54 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     private ArrayList<Seller> listSeller = new ArrayList<>();
     private ArrayList<Food> foodIdList = new ArrayList<>();
     private HashMap<Seller, ArrayList<Food>> childMapping = new HashMap<>();
 
+    private String foodlist;
+    private int foodPriceList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+
+        final int currentUserId = getIntent().getExtras().getInt("currentUserId");
+        foodlist = getIntent().getExtras().getString("foodlist");
+        foodPriceList = getIntent().getExtras().getInt("foodPricelist");
+
+        Log.d(TAG, "Daftar makanan: " + foodlist);
 
         refreshList();
+
+        findViewById(R.id.pesan).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SelesaiPesananActivity.class);
+                intent.putExtra("currentUserId", currentUserId);
+                startActivity(intent);
+            }
+        });
+
+        expListView = findViewById(R.id.lvExp);
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
+                Intent intent = new Intent(MainActivity.this, BuatPesananActivity.class);
+                intent.putExtra("currentUserId", currentUserId);
+                intent.putExtra("foodList", foodlist);
+                intent.putExtra("foodPriceList", foodPriceList);
+                intent.putExtra("id_food", childMapping.get(listSeller.get(groupPosition)).get(childPosition).getId());
+                intent.putExtra("foodName", childMapping.get(listSeller.get(groupPosition)).get(childPosition).getName());
+                intent.putExtra("foodCategory", childMapping.get(listSeller.get(groupPosition)).get(childPosition).getCategory());
+                intent.putExtra("foodPrice", childMapping.get(listSeller.get(groupPosition)).get(childPosition).getPrice());
+                startActivity(intent);
+                return true;
+            }
+        });
     }
 
     protected void refreshList() {
@@ -79,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                                 tempStatus = false;
                             }
                         }
-                        if(tempStatus==true){
+                        if(tempStatus){
                             listSeller.add(newSeller);
                         }
                     }
